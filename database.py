@@ -1,9 +1,9 @@
 import sqlite3
 
-conn = sqlite3.connect('ocrtunes.db')
+conn = sqlite3.connect('OCRtunes.db')
 cursor = conn.cursor()
 
-cursor.execute('CREATE TABLE IF NOT EXISTS users (user_id INTEGER, name TEXT, user_password, TEXT, date_of_birth NUMBER, favourite_artist TEXT, favourite_genre TEXT)')
+cursor.execute('CREATE TABLE IF NOT EXISTS users (user_id INTEGER PRIMARY KEY, name TEXT, user_password TEXT, date_of_birth NUMBER, favourite_artist TEXT, favourite_genre TEXT)')
 
 # cursor.execute(
 # 	'INSERT INTO users VALUES (?, ?, ?, ?, ?)',
