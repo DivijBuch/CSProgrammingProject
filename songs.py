@@ -13,8 +13,13 @@ conn.commit()
 
 cursor.execute(
     'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
-    ('Its Every Day Bro', 'JAKE PAUL', 'Pop Rap', 220),
+    ('24K Magic', 'Bruno Mars', 'Pop', 226),
 )
+conn.commit()
 
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Starboy', 'The Weeknd', 'R&B', 230),
+)
 conn.commit()
 conn.close()
