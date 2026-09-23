@@ -36,6 +36,7 @@ def accountcreation():
             (username, password, dateofbirth, favouriteartist, favouritegenre)
             )
         print("Account successfuly created")
+        menu()
     except sqlite3.Error as error:
         print(f"There was an error creating the account: {error}")
 
