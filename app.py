@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-root = tk.Tk()
+
 
 
 
@@ -37,7 +37,14 @@ class OCRtunes:
 
         self.name_entry = tk.Entry(input_frame, width=25)
         self.name_entry.grid(row=0, column=1, padx=5)
-        self.name_entry.bind('', lambda e: self.on_submit())
+        self.title_label.pack()
+        # Input frame for organized layout
+        input_frame = tk.Frame(self.root)
+        input_frame.pack(pady=10)
+
+        tk.Label(input_frame, text="Enter your password:").grid(row=1, column=0, padx=5)
+        self.password_entry = tk.Entry(input_frame, width=25)
+        self.password_entry.grid(row=1, column=2, padx=5)
 
         # Action button
         self.submit_button = tk.Button(
@@ -71,7 +78,18 @@ class OCRtunes:
 
         self.status_label.config(text=f"Hello, {name}!")
         print(f"User submitted: {name}")
+    def on_submit(self):
+        """Handle submit button click."""
+        password = self.password_entry.get().strip()
 
+        while len(password) < 8 or len(password) > 20:
+                print("Password must be between 8-20 characters.")
+                password = input("Please enter a password between 8-20 characters and use some special characters e.g.&@%$: ")
+                messagebox.showwarning("Input Error", "Please enter your password")
+        return
+
+
+        print("Correct Password")
 def main():
     root = tk.Tk()
     app = OCRtunes(root)
