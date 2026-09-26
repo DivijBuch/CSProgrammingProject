@@ -1,13 +1,19 @@
+import os
 import sqlite3
-#import pyfiglet
+import pyfiglet
+from colorama import Fore, Back, Style, init
+init(autoreset=True)
 
+def clear_terminal():
+    # Clears terminal: 'cls' for Windows, 'clear' for Mac/Linux
+    os.system('cls' if os.name == 'nt' else 'clear')
 connection = sqlite3.connect("OCRtunes.db")
-
 cursor = connection.cursor()
 
 def menu():
-    OCRTunesTitle = "OCRTunes" #pyfiglet.figlet_format("OCRTunes")
-    print(OCRTunesTitle)
+    clear_terminal()
+    OCRTunesTitle = pyfiglet.figlet_format("OCRTunes")
+    print(Fore.BLUE + Style.BRIGHT + OCRTunesTitle)
     print("Welcome to OCRTunes")
     print("-"*35)
     print("Menu:")
@@ -36,11 +42,13 @@ def accountcreation():
             (username, password, dateofbirth, favouriteartist, favouritegenre)
             )
         print("Account successfuly created")
-        menu()
+        
     except sqlite3.Error as error:
         print(f"There was an error creating the account: {error}")
 
     connection.commit()
     connection.close()
+    clear_terminal()
+    menu()
 
 menu()
