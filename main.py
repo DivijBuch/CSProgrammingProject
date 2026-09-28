@@ -7,6 +7,7 @@ init(autoreset=True)
 def clear_terminal():
     # Clears terminal: 'cls' for Windows, 'clear' for Mac/Linux
     os.system('cls' if os.name == 'nt' else 'clear')
+    
 connection = sqlite3.connect("OCRtunes.db")
 cursor = connection.cursor()
 
