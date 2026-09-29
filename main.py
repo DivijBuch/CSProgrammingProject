@@ -2,15 +2,17 @@ import os
 import sqlite3
 import pyfiglet
 from colorama import Fore, Back, Style, init
+import time
+
 init(autoreset=True)
 
 def clear_terminal():
     # Clears terminal: 'cls' for Windows, 'clear' for Mac/Linux
     os.system('cls' if os.name == 'nt' else 'clear')
     
-connection = sqlite3.connect("OCRtunes.db")
-cursor = connection.cursor()
-
+conn = sqlite3.connect("OCRtunes.db")
+cursor = conn.cursor()
+ 
 def menu():
     clear_terminal()
     OCRTunesTitle = pyfiglet.figlet_format("OCRTunes")
@@ -21,10 +23,16 @@ def menu():
     print("1. Create new account")
     print("2. Edit details")
     print("3. Create, save, view playlists")
+    print("4. Exit")
     option = int(input("Enter an option: "))
     if option == 1:
         accountcreation()
-
+    elif option == 2:
+        editdetails()
+    elif option == 3:
+        playlistcreation()
+    else:
+        print("bye")
 
 
 def accountcreation():
@@ -43,13 +51,44 @@ def accountcreation():
             (username, password, dateofbirth, favouriteartist, favouritegenre)
             )
         print("Account successfuly created")
+        time.sleep(2)
         
     except sqlite3.Error as error:
         print(f"There was an error creating the account: {error}")
+        time.sleep(2)
 
-    connection.commit()
-    connection.close()
     clear_terminal()
+    menu()
+
+def editdetails():
+    clear_terminal()
+    username = str(input("What is your user name: "))
+    cursor.execute('SELECT name FROM users')
+    rows = cursor.fetchall()
+    names = [row[0] for row in rows]
+    if username in names:
+        password = str(input("What is your password: "))
+        cursor.execute('SELECT user_password FROM users WHERE name = ?', (username,))
+        stored_password = cursor.fetchone()[0]
+        if password == stored_password:
+            newfvoriteartist = str(input("Who is your new favorite artist: "))
+            cursor.execute('UPDATE users SET favourite_artist = ? WHERE name = ?', (newfvoriteartist, username))
+            conn.commit()
+            print("Details updated successfully.")
+            time.sleep(1)
+            menu()
+        else:
+            print("Password is incorrect")
+            time.sleep(1)
+            menu()
+    else:
+        print("Username does not exist")
+        time.sleep(1)
+        menu()
+
+def playlistcreation():
+    print("Playlist creation coming soon...")
+    time.sleep(2)
     menu()
 
 menu()
