@@ -7,49 +7,104 @@ cursor.execute('CREATE TABLE IF NOT EXISTS songs (song_id INTEGER PRIMARY KEY AU
 
 cursor.execute(
     'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
-    ('Flashing Lights', 'Kanye West', 'RAP', 237),
+    ('Flashing Lights', 'Kanye West', 'Rap', 237),
 )
-conn.commit()
 
 cursor.execute(
     'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
-    ('24K Magic', 'Bruno Mars', 'Pop', 226),
+    ('I Wonder', 'Kanye West', 'Rap', 243),
 )
-conn.commit()
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Bound 2', 'Kanye West', 'R&B', 229),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Stronger', 'Kanye West', 'Rap', 311),
+)
 
 cursor.execute(
     'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
     ('Starboy', 'The Weeknd', 'R&B', 230),
 )
-conn.commit()
+
 
 cursor.execute(
     'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
-    ('Heartless', 'Kanye West', 'RAP', 211),
+    ('Blinding Lights', 'The Weeknd', 'R&B', 200),
 )
-conn.commit()
 
 cursor.execute(
     'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
-    ('Heartless', 'Kanye West', 'RAP', 211),
+    ('Timeless', 'The Weeknd', 'Rap', 256),
 )
-conn.commit()
 
 cursor.execute(
     'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
-    ('The Hills', 'The Weeknd', 'R&B', 242),
+    ('Save your tears', 'The Weeknd', 'R&B', 215),
 )
-conn.commit()
 
 cursor.execute(
     'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
-    ('Locked Out of Heaven', 'Bruno Mars', 'Pop', 233),
+    ('Cruel Summer', 'Taylor Swift', 'Pop', 178),
 )
-conn.commit()
 
 cursor.execute(
     'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
-    ('Uptown Funk', 'Bruno Mars', 'Pop', 269),
+    ('Lover', 'Taylor Swift', 'Pop', 221),
 )
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Shake It Off', 'Taylor Swift', 'Pop', 219),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Love Story', 'Taylor Swift', 'Pop', 236),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Chest Pain', 'Malcom Todd', 'Pop', 200),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Roomates', 'Malcom Todd', 'R&B', 314),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Earrings', 'Malcom Todd', 'R&B', 151),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Sweet Boy', 'Malcom Todd', 'R&B', 180),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Fancy', 'Drake', 'Rap', 319),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Passionfruit', 'Drake', 'Rap', 298),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Headlines', 'Drake', 'Rap', 235),
+)
+
+cursor.execute(
+    'INSERT INTO songs (title, artist, genre, length_seconds) VALUES (?, ?, ?, ?)',
+    ('Classic', 'Drake', 'Rap', 179),
+)
+
 conn.commit()
 conn.close()
